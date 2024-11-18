@@ -13,8 +13,6 @@ export default class extends BaseSchema {
         .inTable('clientes')
         .onDelete('CASCADE')
       table.string('numero').notNullable()
-      table.timestamp('criado_em').notNullable()
-      table.timestamp('atualizado_em').nullable()
     })
   }
 

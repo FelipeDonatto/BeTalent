@@ -2,6 +2,7 @@ import router from '@adonisjs/core/services/router'
 import { middleware } from './kernel.js'
 
 const AuthController = () => import('#controllers/auth_controller')
+const ClientesController = () => import('#controllers/clientes_controller')
 
 router
   .group(() => {
@@ -19,4 +20,11 @@ router
       return response.unauthorized({ error: 'User not found' })
     }
   })
+  .use(middleware.auth())
+
+router
+  .group(() => {
+    router.post('registrar', [ClientesController, 'createClient'])
+  })
+  .prefix('clientes')
   .use(middleware.auth())

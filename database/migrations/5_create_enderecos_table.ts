@@ -18,8 +18,6 @@ export default class extends BaseSchema {
       table.string('cidade').notNullable()
       table.string('estado').notNullable()
       table.string('cep').notNullable()
-      table.timestamp('criado_em').notNullable()
-      table.timestamp('atualizado_em').nullable()
     })
   }
 
