@@ -21,7 +21,6 @@ export default class extends BaseSchema {
       table.integer('quantidade').notNullable()
       table.decimal('preco_unitario', 10, 2).notNullable()
       table.decimal('preco_total', 10, 2).notNullable()
-      table.timestamp('data_hora', { useTz: true }).notNullable()
       table.timestamp('criado_em').notNullable()
       table.timestamp('atualizado_em').nullable()
     })

@@ -14,6 +14,9 @@ export default class Produto extends BaseModel {
   @column()
   declare preco: number
 
+  @column()
+  declare ativo: boolean
+
   @column.dateTime({ autoCreate: true })
   declare criadoEm: DateTime
 

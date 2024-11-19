@@ -1,5 +1,7 @@
 import router from '@adonisjs/core/services/router'
 import { middleware } from './kernel.js'
+const VendasController = () => import('#controllers/vendas_controller')
+const ProdutosController = () => import('#controllers/produtos_controller')
 
 const AuthController = () => import('#controllers/auth_controller')
 const ClientesController = () => import('#controllers/clientes_controller')
@@ -12,19 +14,33 @@ router
   .prefix('usuario')
 
 router
-  .get('me', async ({ auth, response }) => {
-    try {
-      const user = auth.getUserOrFail()
-      return response.ok(user)
-    } catch (error) {
-      return response.unauthorized({ error: 'User not found' })
-    }
+  .group(() => {
+    router.post('registrar', [ClientesController, 'createClient'])
+    router.put('editar', [ClientesController, 'editClient'])
+    router.get('listar', [ClientesController, 'listAllClients'])
+    router.get('buscar/:id', [ClientesController, 'getClient'])
+    router.get('buscar/:id/:ano/:mes?', [ClientesController, 'getClientWithDate'])
+    router.delete('deletar', [ClientesController, 'deleteClient'])
   })
+  .prefix('clientes')
   .use(middleware.auth())
 
 router
   .group(() => {
-    router.post('registrar', [ClientesController, 'createClient'])
+    router.post('registrar', [ProdutosController, 'createProduct'])
+    router.put('editar', [ProdutosController, 'editProduct'])
+    router.get('listar', [ProdutosController, 'listAllProducts'])
+    router.get('buscar/:id', [ProdutosController, 'showProduct'])
+    router.delete('deletar', [ProdutosController, 'deleteProduct'])
+    router.put('desativar', [ProdutosController, 'softDeleteProduct'])
   })
-  .prefix('clientes')
+  .prefix('produtos')
+  .use(middleware.auth())
+
+router
+  .group(() => {
+    router.post('registrar', [VendasController, 'registerSale'])
+    router.get('buscar/:id', [VendasController, 'showSale'])
+  })
+  .prefix('vendas')
   .use(middleware.auth())

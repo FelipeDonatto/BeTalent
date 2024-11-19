@@ -24,9 +24,6 @@ export default class Venda extends BaseModel {
   @column()
   declare precoTotal: number
 
-  @column()
-  declare dataHora: Date
-
   @column.dateTime({ autoCreate: true })
   declare criadoEm: DateTime
 

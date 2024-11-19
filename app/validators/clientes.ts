@@ -2,6 +2,7 @@ import vine from '@vinejs/vine'
 
 export const clienteValidator = vine.compile(
   vine.object({
+    id: vine.number().optional(),
     nome: vine.string(),
     cpf: vine.string().minLength(11).maxLength(13),
     rua: vine.string(),

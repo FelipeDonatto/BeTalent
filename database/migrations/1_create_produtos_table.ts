@@ -9,6 +9,7 @@ export default class extends BaseSchema {
       table.string('nome').notNullable()
       table.text('descricao').notNullable()
       table.decimal('preco', 10, 2).notNullable()
+      table.boolean('ativo').notNullable().defaultTo(true)
       table.timestamp('criado_em').notNullable()
       table.timestamp('atualizado_em').nullable()
     })
