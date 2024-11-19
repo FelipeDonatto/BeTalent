@@ -1,5 +1,24 @@
 # Documentação da API
 
+<details>
+<summary>📦 Observações e Plano de melhoria 📦 </summary>
+
+---
+
+##### Como essa API é apenas uma demonstração, a segurança não foi um ponto de procupação extremo. Ela é apenas para demonstrar minhas habilidades e conhecimento sobre a estrutura usada.
+
+---
+
+1. Melhorar a segurança, ceritificar que apenas usuarios e clientes relacionados consigam modificar os dados.
+
+2. Adicionar testes unitarios para cada rota
+
+3. Realizar possiveis mudanças de acordo com as necessidades do Front-End
+
+---
+
+</details>
+
 ## Visão Geral
 
 Esta API permite gerenciar usuários, clientes e produtos, com rotas organizadas por prefixos. Todas as rotas protegidas exigem autenticação JWT por meio de middleware.
@@ -191,7 +210,7 @@ npm run dev
     "id": 3,
     "usuarioId": 1,
     "nome": "Donatto Felipe",
-    "cpf": "03707820033",
+    "cpf": "12312312333",
     "criadoEm": "2024-11-18T13:01:41.000+00:00",
     "atualizadoEm": "2024-11-18T17:07:25.000+00:00",
     "endereco": {
@@ -585,7 +604,3 @@ npm run dev
       "error": "Invalid credentials."
     }
     ```
-
-```
-
-```
