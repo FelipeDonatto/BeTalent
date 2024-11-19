@@ -66,6 +66,16 @@ DB_DATABASE=BeTalent
 node ace migration:run
 ```
 
+<details>
+
+<summary>
+<b><u>Clique aqui para ver o diagrama do banco de dados</u></b>
+</summary>
+
+![ScreenShot](/Diagrama.png)
+
+ </details>
+
 #### Se tudo ocorreu como esperado agora poderemos iniciar a nossa API, para isso usaremos o comando:
 
 ```bash
