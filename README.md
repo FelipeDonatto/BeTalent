@@ -5,7 +5,7 @@
 Esta API permite gerenciar usuários, clientes e produtos, com rotas organizadas por prefixos. Todas as rotas protegidas exigem autenticação JWT por meio de middleware.
 O token é gerado ao realizar o login, sendo no padrão:
 
-```json
+```
 Authorization: Bearer {token}
 ```
 
